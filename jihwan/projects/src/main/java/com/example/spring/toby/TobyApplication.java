@@ -20,7 +20,15 @@ public class TobyApplication {
 		user.setName("토비");
 		user.setPassword("1234");
 
+		System.out.println(user.getId() + " 등록 성공");
+
 		dao.add(user);
+
+		User userId = dao.get(user.getId());
+		System.out.println(userId.getName());
+		System.out.println(userId.getPassword());
+
+		System.out.println(userId.getId() + " 조회 성공");
 	}
 
 }

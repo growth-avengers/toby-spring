@@ -1,9 +1,6 @@
 package com.example.spring.toby.users;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.DriverManager;
+import java.sql.*;
 
 public class UserDao {
 
@@ -20,6 +17,27 @@ public class UserDao {
 
         ps.close();
         c.close();
+    }
+
+    public User get(String id) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3313/springbook", "root", "root1234");
+
+        PreparedStatement ps = c.prepareStatement("select * from users where id = ?");
+        ps.setString(1, id);
+
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        User user = new User();
+        user.setId(rs.getString("id"));
+        user.setName(rs.getString("name"));
+        user.setPassword(rs.getString("password"));
+
+        rs.close();
+        ps.close();
+        c.close();
+
+        return user;
     }
 
 }
