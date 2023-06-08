@@ -20,3 +20,10 @@ SpringBoot 환경설정에는 다음과 같습니다.
    4. Packaging: Jar
    5. Java: 11
 3. 프로젝트를 생성합니다.
+
+## IntelliJ Gradle 대신 자바로 실행하기
+새로운 프로젝트를 설치하고 실행하면 Gradle로 기본 실행이 됩니다. 이 경우 속도가 느립니다.
+1. 실행 속도를 높이기 위해서 다음과 같은 설정을 변경해줍니다.
+- Preferences Build, Execution, Deployment  Build Tools  Gradle
+  - **Build and run using:** Gradle -> IntelliJ IDEA
+  - **Run tests using:** Gradle -> IntelliJ IDEA
