@@ -1,6 +1,8 @@
 package com.example.spring.toby;
 
-import com.example.spring.toby.users.SimpleConnectionMaker;
+import com.example.spring.toby.users.ConnectionMaker;
+import com.example.spring.toby.users.DConnectionMaker;
+import com.example.spring.toby.users.NConnectionMaker;
 import com.example.spring.toby.users.User;
 import com.example.spring.toby.users.UserDao;
 import org.springframework.boot.SpringApplication;
@@ -15,9 +17,9 @@ public class TobyApplication {
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		SpringApplication.run(TobyApplication.class, args);
 
-		SimpleConnectionMaker simpleConnectionMaker = new SimpleConnectionMaker();
+		ConnectionMaker NconnectionMaker = new NConnectionMaker();
 
-		UserDao Ndao = new UserDao(simpleConnectionMaker);
+		UserDao Ndao = new UserDao(NconnectionMaker);
 
 		User user = new User();
 		user.setId("1L");
@@ -34,22 +36,24 @@ public class TobyApplication {
 
 		System.out.println(userId.getId() + " 조회 성공");
 
-//		UserDao Ddao = new DUserDao();
-//
-//		User user1 = new User();
-//		user1.setId("2L");
-//		user1.setName("토비2");
-//		user1.setPassword("1234");
-//
-//		System.out.println(user1.getId() + " 등록 성공");
-//
-//		Ddao.add(user);
-//
-//		User userId2 = Ddao.get(user.getId());
-//		System.out.println(userId2.getName());
-//		System.out.println(userId2.getPassword());
-//
-//		System.out.println(userId2.getId() + " 조회 성공");
+		ConnectionMaker DconnectionMaker = new DConnectionMaker();
+
+		UserDao Ddao = new UserDao(DconnectionMaker);
+
+		User user1 = new User();
+		user1.setId("2L");
+		user1.setName("토비2");
+		user1.setPassword("1234");
+
+		System.out.println(user1.getId() + " 등록 성공");
+
+		Ddao.add(user);
+
+		User userId2 = Ddao.get(user.getId());
+		System.out.println(userId2.getName());
+		System.out.println(userId2.getPassword());
+
+		System.out.println(userId2.getId() + " 조회 성공");
 	}
 
 }
