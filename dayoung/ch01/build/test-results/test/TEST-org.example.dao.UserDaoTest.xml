@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.dao.UserDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-10T07:02:39" hostname="LEE-DAYOUNGui-MacBookPro.local" time="0.226">
+  <properties/>
+  <testcase name="addAndGet()" classname="org.example.dao.UserDaoTest" time="0.226"/>
+  <system-out><![CDATA[0
+test
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
