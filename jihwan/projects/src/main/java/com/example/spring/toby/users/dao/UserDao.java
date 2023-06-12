@@ -1,5 +1,8 @@
-package com.example.spring.toby.users;
+package com.example.spring.toby.users.dao;
 
+
+import com.example.spring.toby.users.ConnectionMaker;
+import com.example.spring.toby.users.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
